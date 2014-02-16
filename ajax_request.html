@@ -1,0 +1,26 @@
+<script src='jquery.min.js'></script>
+
+<script>
+
+	jQuery(document).ready(function($) {
+		// Make an Ajax request
+		$.ajax({
+				
+			// Define the URL being called by Ajax
+			
+			url: 'http://localhost:2040/FeedMeHash/ajax_response.php',
+			
+			// Put the results into the display element
+			success: function(data){
+				$('#ajax_results').html(data);
+			},
+			
+			// Display an error message if the request fails
+			error: function(data) {
+				$('#ajax_results').html('Ajax request failed');
+			}
+		})
+	});
+</script>
+	
+Testing Ajax: <span id='ajax_results'></span>
