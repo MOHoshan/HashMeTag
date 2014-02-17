@@ -12,8 +12,9 @@ $connection = new tmhOAuth(array(
   'user_secret'     => $user_secret
 ));
 
+// use https://api.twitter.com/1.1/search/tweets.json 
 // Get the test Hashtag with the Twitter API
-$http_code = $connection->request('GET',$connection->url('1.1/statuses/user_timeline'), 
+$http_code = $connection->request('GET',$connection->url('1.1/search/tweets.json'), 
 	array('text' => 'hashtag',
 		'count' => 100));
 			
@@ -25,7 +26,7 @@ if ($http_code == 200) {
 	
 	// Accumulate tweets from results
 	$tweet_stream = '';		
-	foreach($tweet_data as $tweet) {
+	foreach($tweet_data['statuses'] as $tweet) {
 		
 		// Add this tweet's text to the results
 		$tweet_stream .= $tweet['text'] . '<br/><br/>';
