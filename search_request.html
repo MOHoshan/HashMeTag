@@ -18,7 +18,10 @@
 			// This URL is for illustration only
 			// You MUST change it to your server
 			$.ajax({
-				url: 'http://localhost:8080/FeedMeHash/search_response.php?q=' + search_value,
+				type: "POST",
+				url: 'http://localhost:8080/FeedMeHash/search_response.php',
+				data: { searchTerm: search_value },
+
 				success: function(data){
 					
 					// Display the results
