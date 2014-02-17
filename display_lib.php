@@ -1,5 +1,5 @@
 <?php
-
+// I don't know how this code work but it supposed to be useful :)
 // Convert tweet text into linkified version
 function linkify($text) {
 	
